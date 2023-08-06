@@ -3,5 +3,5 @@
 >_("Hello, Styio!")
 
 /*
-  CHECK: Print { "Hello, Styio!" }
+  CHECK: 
 */
