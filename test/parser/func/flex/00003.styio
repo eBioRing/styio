@@ -1,8 +1,15 @@
 // RUN: /root/styio/styio %s | /usr/bin/FileCheck %s
 
-# f = (x, y) => {
-  => x + y
-}
+# f
+  = (
+    x:
+      i32, /* x */
+    y:
+      i32, /* y */
+    z:
+      i32, /* z */
+  )
+  => x + y + z
 
 /*
   CHECK: Function(Flexible) {
