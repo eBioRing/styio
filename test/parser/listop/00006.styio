@@ -2,7 +2,7 @@
 
 list = [1, 2, 3]
 
-list[?= 1]
+list[?^ [2, 3]]
 
 /*
   CHECK:      Binding (Flexible) {
@@ -11,8 +11,10 @@ list[?= 1]
   CHECK-NEXT: |----| int { 1 }
   CHECK-NEXT: |----| int { 2 }
   CHECK-NEXT: |----| int { 3 }]}
-  
-  CHECK-NEXT: Get Index by Value {
+
+  CHECK-NEXT: Get Indices by Many Value {
   CHECK-NEXT: || id { list }
-  CHECK-NEXT: || Index: int { 1 }}
+  CHECK-NEXT: || Index: List [
+  CHECK-NEXT: |----| int { 2 }
+  CHECK-NEXT: |----| int { 3 }]}
 */
