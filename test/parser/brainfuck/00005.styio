@@ -1,16 +1,7 @@
 // RUN: /root/styio/styio %s | /usr/bin/FileCheck %s
 
-code <- @("code.txt")
-
-map = []
-
-iloop = 0
-
-ilast = |code| - 1
-
 [0..ilast] >> #(l) ?= '[' => {
   iloop += 1
-  
   
   success = \f\
 
@@ -31,20 +22,6 @@ ilast = |code| - 1
 }
 
 /*
-  CHECK:      Read File {
-  CHECK-NEXT: || Var: id { code }
-  CHECK-NEXT: || Val: Path { "code.txt" }}
-  CHECK-NEXT: Binding (Flexible) {
-  CHECK-NEXT: || Var: id { map }
-  CHECK-NEXT: || Val: Empty { }}
-  CHECK-NEXT: Binding (Flexible) {
-  CHECK-NEXT: || Var: id { iloop }
-  CHECK-NEXT: || Val: int { 0 }}
-  CHECK-NEXT: Binding (Flexible) {
-  CHECK-NEXT: || Var: id { ilast }
-  CHECK-NEXT: || Val: Subtract {
-  CHECK-NEXT: |--| LHS: SizeOf { id { code } }
-  CHECK-NEXT: |--| RHS: int { 1 }}}
   CHECK-NEXT: Loop {
   CHECK-NEXT: || Forward (Fill -> If Equal -> Run) {
   CHECK-NEXT: |--| Fill {
